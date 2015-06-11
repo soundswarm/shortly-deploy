@@ -1,28 +1,18 @@
 var port = require('../server.js')
-var Bookshelf = require('bookshelf');
-var path = require('path');
-// mongo and mongoose
-var mongo = require('mongodb');
-// var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert')
-// var ObjectId = require('mongodb').ObjectID;
-var mongoUrl = 'mongodb://127.0.0.1:27017/test';
-// MongoClient.connect(mongoUrl, function(err, db) {
-//   assert.equal(null, err);
-//   console.log("Connected correctly to server.");
-//   db.close();
-// });
-
+// var path = require('path');
 var mongoose = require('mongoose');
+
+var mongoUrl = process.env.CUSTOMCONNSTR_MONGOLAB_URI ||'mongodb://127.0.0.1/db';
+
 mongoose.connect(mongoUrl);
-
 var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'db error.connection error:'));
-// db.once('open', function (callback) {
-//   console.log('opened db');
-// });
+db.on('error', console.error.bind(console, 'db error.connection error:'));
+db.once('open', function (callback) {
+  console.log('opened db');
+});
 
 
+module.exports = db;
 
 // var db = Bookshelf.initialize({
 //   client: 'sqlite3',
@@ -65,4 +55,3 @@ var db = mongoose.connection;
 //   }
 // });
 
-module.exports = db;

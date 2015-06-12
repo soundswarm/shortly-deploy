@@ -136,6 +136,8 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   exitWithMessageOnError "grunt failed"
   cd - > /dev/null
 fi
+
+
 ##################################################################################################################################
 
 # Post deployment stub

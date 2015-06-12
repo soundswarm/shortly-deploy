@@ -19,8 +19,8 @@ userSchema.pre('save', function(next) {
 
 });
 
-User.prototype.comparePassword = function(attemptedPassword, callback) {
-  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+User.comparePassword = function(attemptedPassword, savedPassword, callback) {
+  bcrypt.compare(attemptedPassword, savedPassword, function(err, isMatch) {
     callback(null, isMatch);  //check to how mongoose handles err in callback
   });
 };

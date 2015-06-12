@@ -31,7 +31,7 @@ SCRIPT_DIR="${SCRIPT_DIR%/*}"
 ARTIFACTS=$SCRIPT_DIR/../artifacts
 KUDU_SYNC_CMD=${KUDU_SYNC_CMD//\"}
 
-CUSTOMCONNSTR_MONGOLAB_URI='mongodb://sean:t@ds036638.mongolab.com:36638/MongoLab-r'
+CUSTOMCONNSTR_MONGOLAB_URI="mongodb://sean:t@ds036638.mongolab.com:36638/MongoLab-r"
 
 if [[ ! -n "$DEPLOYMENT_SOURCE" ]]; then
   DEPLOYMENT_SOURCE=$SCRIPT_DIR
